@@ -1,5 +1,7 @@
 # Dockerfile - Contrast .NET Agent running in Windows Docker container
 
+> Contrast.NET support: version 18.10.35 and up
+
 This image can be used just like the [`microsoft/aspnet`](https://hub.docker.com/r/microsoft/aspnet/).  At container startup, it will perform these additional steps:
 
 1. Download the latest nuget.exe
