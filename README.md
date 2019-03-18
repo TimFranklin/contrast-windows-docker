@@ -2,13 +2,19 @@
 
 > Contrast.NET support: version 18.10.35 and up
 
-This image can be used just like the [`microsoft/aspnet`](https://hub.docker.com/r/microsoft/aspnet/).  At container startup, it will perform these additional steps:
+This image can be used just like the [`microsoft/aspnet`](https://hub.docker.com/r/microsoft/aspnet/).  
+When building the image, the Dockerfile will:
 
 1. Download the latest nuget.exe
 2. Create a contrast folder under c:\contrast
-2. Use Nuget to download the latest release of the [Contrast Azure Extension].  (https://www.nuget.org/packages/Contrast.NET.Azure.AppService/).  Extract agent files in the contrast folder
-4. Create folders under c:\contrast for agent data and log files
-5. Run your site with the Contrast.NET agent and any agent customizations
+3. Use Nuget to download the latest release of the [Contrast Azure Extension].  (https://www.nuget.org/packages/Contrast.NET.Azure.AppService/).  
+4. Extract agent files to the contrast folder
+5. Copy Startup.ps1 file to the image
+
+At container startup, the Startup.ps1 script will run and perform these additional steps:
+
+1. Create folders under c:\contrast for agent data and log files
+2. Run your site with the Contrast.NET agent and any agent customizations.  The site runs using ServiceMonitor.exe like the official aspnet images.
 
 ## Creating a base image
 
